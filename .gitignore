@@ -6,6 +6,9 @@ bun.lockb
 dist/
 build/
 
+# Generated code
+src/client/
+
 # Logs
 *.log
 npm-debug.log*
