@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hono + Bun アプリケーション</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Hono + Bun + Docker Compose</h1>
+    <p>これはHonoとBunを使用したサンプルアプリケーションです。</p>
+    <div id="api-response">APIからのレスポンスを待っています...</div>
+    <button id="fetch-btn">APIを呼び出す</button>
+  </div>
+
+  <script>
+    document.getElementById('fetch-btn').addEventListener('click', async () => {
+      try {
+        const response = await fetch('/api/hello');
+        const data = await response.json();
+        document.getElementById('api-response').textContent = 
+          `メッセージ: ${data.message}, 時間: ${data.timestamp}`;
+      } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('api-response').textContent = 'エラーが発生しました';
+      }
+    });
+  </script>
+</body>
+</html> 
