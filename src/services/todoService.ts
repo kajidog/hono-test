@@ -1,10 +1,6 @@
-import type { z } from "zod";
+import type { Todo } from "@prisma/client";
 import prisma from "../models/prisma";
-import type { CreateTodoSchema, TodoSchema, UpdateTodoSchema } from "../models/schemas";
-
-export type Todo = z.infer<typeof TodoSchema>;
-export type CreateTodoInput = z.infer<typeof CreateTodoSchema>;
-export type UpdateTodoInput = z.infer<typeof UpdateTodoSchema>;
+import type { CreateTodoInput, UpdateTodoInput } from "../schemas/todoSchema";
 
 export const todoService = {
   // 全Todoを取得

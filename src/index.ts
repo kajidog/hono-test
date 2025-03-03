@@ -10,6 +10,8 @@ import { logger } from "hono/logger";
 import { z } from "zod";
 import todoRouter from "./routes/todoRoutes";
 import userRouter from "./routes/userRoutes";
+import { todoSchema } from "./schemas/todoSchema";
+import { userSchema } from "./schemas/userSchema";
 
 // Zodを拡張してOpenAPI機能を追加
 extendZodWithOpenApi(z);
@@ -17,28 +19,8 @@ extendZodWithOpenApi(z);
 // OpenAPI レジストリを作成
 const registry = new OpenAPIRegistry();
 
-// ユーザースキーマを登録
-const userSchema = z.object({
-  id: z.number().int().positive(),
-  email: z.string().email(),
-  name: z.string().optional(),
-  createdAt: z.string().openapi({ format: "date-time" }),
-  updatedAt: z.string().openapi({ format: "date-time" }),
-});
-
+// スキーマを登録
 registry.register("User", userSchema);
-
-// Todoスキーマを登録
-const todoSchema = z.object({
-  id: z.number().int().positive(),
-  title: z.string(),
-  description: z.string().optional(),
-  completed: z.boolean(),
-  userId: z.number().int().positive(),
-  createdAt: z.string().openapi({ format: "date-time" }),
-  updatedAt: z.string().openapi({ format: "date-time" }),
-});
-
 registry.register("Todo", todoSchema);
 
 // APIエンドポイントを登録

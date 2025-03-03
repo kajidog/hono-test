@@ -1,10 +1,10 @@
-import { writeFileSync } from "node:fs";
-import { join } from "node:path";
 import {
   OpenAPIRegistry,
   OpenApiGeneratorV3,
   extendZodWithOpenApi,
 } from "@asteasolutions/zod-to-openapi";
+import { writeFileSync } from "node:fs";
+import { join } from "node:path";
 import YAML from "yaml";
 import { z } from "zod";
 
@@ -57,3 +57,22 @@ export const generateOpenApiSpec = () => {
 export const registerSchema = (name: string, schema: z.ZodTypeAny) => {
   return registry.register(name, schema);
 };
+
+/**
+ * OpenAPI仕様ドキュメントを生成する関数
+ * @param registry OpenAPIレジストリ
+ * @returns OpenAPI仕様ドキュメント
+ */
+export function createOpenApiDocument(registry: OpenAPIRegistry) {
+  const generator = new OpenApiGeneratorV3(registry.definitions);
+
+  return generator.generateDocument({
+    openapi: "3.0.0",
+    info: {
+      title: "Hono + Prisma API",
+      version: "1.0.0",
+      description: "API documentation for Hono + Prisma application",
+    },
+    servers: [{ url: "http://localhost:3000" }],
+  });
+}

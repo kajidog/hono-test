@@ -1,15 +1,6 @@
 import type { User } from "@prisma/client";
 import prisma from "../models/prisma";
-
-export interface CreateUserInput {
-  email: string;
-  name?: string;
-}
-
-export interface UpdateUserInput {
-  name?: string;
-  email?: string;
-}
+import type { CreateUserInput, UpdateUserInput } from "../schemas/userSchema";
 
 export const userService = {
   // 全ユーザーを取得

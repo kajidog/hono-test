@@ -1,17 +1,7 @@
 import type { Context } from "hono";
-import { z } from "zod";
-import { type CreateUserInput, type UpdateUserInput, userService } from "../services/userService";
-
-// バリデーションスキーマ
-const createUserSchema = z.object({
-  email: z.string().email(),
-  name: z.string().optional(),
-});
-
-const updateUserSchema = z.object({
-  email: z.string().email().optional(),
-  name: z.string().optional(),
-});
+import type { CreateUserInput, UpdateUserInput } from "../schemas/userSchema";
+import { createUserSchema, updateUserSchema } from "../schemas/userSchema";
+import { userService } from "../services/userService";
 
 export const userController = {
   // 全ユーザーを取得

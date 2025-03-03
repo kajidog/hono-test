@@ -1,5 +1,6 @@
 import type { Context } from "hono";
-import { CreateTodoSchema, UpdateTodoSchema } from "../models/schemas";
+import type { CreateTodoInput, UpdateTodoInput } from "../schemas/todoSchema";
+import { createTodoSchema, updateTodoSchema } from "../schemas/todoSchema";
 import { todoService } from "../services/todoService";
 
 export const todoController = {
@@ -54,13 +55,16 @@ export const todoController = {
   async createTodo(c: Context) {
     try {
       const body = await c.req.json();
-      const validationResult = CreateTodoSchema.safeParse(body);
+      const validationResult = createTodoSchema.safeParse(body);
 
       if (!validationResult.success) {
-        return c.json({ error: validationResult.error.errors, success: false }, 400);
+        return c.json(
+          { error: validationResult.error.errors, success: false },
+          400
+        );
       }
 
-      const todoData = validationResult.data;
+      const todoData: CreateTodoInput = validationResult.data;
       const todo = await todoService.createTodo(todoData);
 
       return c.json({ todo, success: true }, 201);
@@ -79,13 +83,16 @@ export const todoController = {
       }
 
       const body = await c.req.json();
-      const validationResult = UpdateTodoSchema.safeParse(body);
+      const validationResult = updateTodoSchema.safeParse(body);
 
       if (!validationResult.success) {
-        return c.json({ error: validationResult.error.errors, success: false }, 400);
+        return c.json(
+          { error: validationResult.error.errors, success: false },
+          400
+        );
       }
 
-      const todoData = validationResult.data;
+      const todoData: UpdateTodoInput = validationResult.data;
       const todo = await todoService.updateTodo(id, todoData);
 
       return c.json({ todo, success: true });
