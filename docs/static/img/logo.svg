@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bun ロゴの背景円 -->
+  <circle cx="100" cy="100" r="90" fill="#FBF0DF" />
+  
+  <!-- Hono ロゴ (簡略化) -->
+  <g transform="translate(40, 50) scale(0.12)">
+    <path d="M141.5 238.5V161H0V238.5H141.5Z" fill="#E15241"/>
+    <path d="M141.5 0V77.5H0V0H141.5Z" fill="#E15241"/>
+    <path d="M0 77.5H141.5V161H0V77.5Z" fill="#E15241"/>
+    <path d="M176.5 0H318V77.5H176.5V0Z" fill="#E15241"/>
+    <path d="M176.5 77.5H318V161H176.5V77.5Z" fill="#E15241"/>
+    <path d="M176.5 161H318V238.5H176.5V161Z" fill="#E15241"/>
+    <path d="M353 0H494.5V77.5H353V0Z" fill="#E15241"/>
+    <path d="M353 77.5H494.5V161H353V77.5Z" fill="#E15241"/>
+    <path d="M353 161H494.5V238.5H353V161Z" fill="#E15241"/>
+    <path d="M529.5 0H671V77.5H529.5V0Z" fill="#E15241"/>
+    <path d="M529.5 77.5H671V161H529.5V77.5Z" fill="#E15241"/>
+    <path d="M529.5 161H671V238.5H529.5V161Z" fill="#E15241"/>
+    <path d="M706 0H847.5V77.5H706V0Z" fill="#E15241"/>
+    <path d="M706 77.5H847.5V161H706V77.5Z" fill="#E15241"/>
+    <path d="M706 161H847.5V238.5H706V161Z" fill="#E15241"/>
+    <path d="M882.5 0H1024V77.5H882.5V0Z" fill="#E15241"/>
+    <path d="M882.5 77.5H1024V161H882.5V77.5Z" fill="#E15241"/>
+    <path d="M882.5 161H1024V238.5H882.5V161Z" fill="#E15241"/>
+  </g>
+  
+  <!-- Bun ロゴ (簡略化) -->
+  <g transform="translate(70, 100)">
+    <path d="M60 0C60 33.1371 33.1371 60 0 60C-33.1371 60 -60 33.1371 -60 0C-60 -33.1371 -33.1371 -60 0 -60C33.1371 -60 60 -33.1371 60 0Z" fill="#FBF0DF"/>
+    <path d="M0 -40C22.0914 -40 40 -22.0914 40 0C40 22.0914 22.0914 40 0 40C-22.0914 40 -40 22.0914 -40 0C-40 -22.0914 -22.0914 -40 0 -40Z" fill="#FFB74D"/>
+    <path d="M0 -20C11.0457 -20 20 -11.0457 20 0C20 11.0457 11.0457 20 0 20C-11.0457 20 -20 11.0457 -20 0C-20 -11.0457 -11.0457 -20 0 -20Z" fill="#FB923C"/>
+  </g>
+  
+  <!-- テキスト -->
+  <text x="100" y="170" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333333">Hono + Bun</text>
+</svg>
